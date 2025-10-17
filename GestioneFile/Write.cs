@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestioneFile
 {
-    internal class Program
+    internal class Write
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("ciao");
-        }
     }
 }
