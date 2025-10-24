@@ -7,21 +7,33 @@ using System.Threading.Tasks;
 
 namespace GestioneFile
 {
-    internal class Write
+    internal class Writer
     {
-        private string testo;
-        StreamWriter sw;
+        private string filePath;
 
-        public class1()
+        public Writer(string path)
         {
-            sw = new StreamWriter("info.txt");
+            filePath = path;
         }
 
-        public void ScriviFile(string t)
+        public void ScriviFile()
         {
-            testo = t;
-            sw.WriteLine(testo);
-            sw.Close();
+            try
+            {
+                using(StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.WriteLine("Prima riga");
+                    writer.WriteLine("Seconda riga");
+                    writer.WriteLine("Terza riga");
+                }
+
+                Console.WriteLine("File scritto con successo");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Errore nella scrittura del file " +  ex.Message);
+            }
+
         }
     }
 }
